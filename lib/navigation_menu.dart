@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:m360ict/common/utils/colors.dart';
-import 'package:m360ict/screens/contacts_screen.dart';
-import 'package:m360ict/screens/profile_screen.dart';
-import 'package:m360ict/screens/tickets_screen.dart';
+import 'package:m360ict/features/contacts/screens/contacts_screen.dart';
+import 'package:m360ict/features/profile/screens/profile_screen.dart';
+import 'package:m360ict/features/tickets/screens/tickets_screen.dart';
 
 class NavigationMenu extends StatelessWidget {
   const NavigationMenu({super.key});

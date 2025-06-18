@@ -25,7 +25,7 @@ class NotificationWithCounter extends StatelessWidget {
               color: AppColors.counterBackgroundColor,
               borderRadius: BorderRadius.circular(100),
             ),
-            child: Center(
+            child: const Center(
               child: Text('2', style: TextStyle(color: Colors.white)),
             ),
           ),
