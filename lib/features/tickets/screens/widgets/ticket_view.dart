@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:m360ict/common/utils/colors.dart';
 import 'package:m360ict/common/utils/device_utility.dart';
+import 'package:m360ict/features/tickets/screens/widgets/filter_status.dart';
+import 'package:m360ict/features/tickets/screens/widgets/priority_status_chip.dart';
+import 'package:m360ict/features/tickets/screens/widgets/ticket_progress_chip.dart';
+import 'package:m360ict/features/tickets/screens/widgets/ticket_user_detail.dart';
 
 class TicketView extends StatelessWidget {
   const TicketView({super.key});
@@ -19,7 +23,7 @@ class TicketView extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            FilterStatus(),
+            FilterStatus(filterTitle: 'New', chipTextColor: AppColors.chipNew, chipBackgroundColor: AppColors.chipNewBg),
             const SizedBox(height: 6),
             Text('#ID 132198423'),
             const SizedBox(height: 6),
@@ -27,75 +31,14 @@ class TicketView extends StatelessWidget {
               'Search view, which can display dynamic suggestions, is the focused state of search bar.',
             ),
             const SizedBox(height: 6),
-            Row(
-              children: [
-                Text('Michale'),
-                const SizedBox(width: 6),
-                Container(
-                  width: 4,
-                  height: 4,
-                  decoration: BoxDecoration(
-                    color: Colors.grey,
-                    shape: BoxShape.circle,
-                  ),
-                ),
-                const SizedBox(width: 6),
-                Text('23 Dec 2023'),
-                const SizedBox(width: 6),
-                Text('03:43 PM'),
-              ],
-            ),
+            TicketUserDetail(name: 'Michale', date: '23 Dec 2023', time: '03:43 PM'),
             Divider(),
             const SizedBox(height: 6),
             Row(
               children: [
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  height: 30,
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: AppColors.chipBorderColor.withAlpha(
-                        (255 * 0.5).toInt(),
-                      ),
-                    ),
-                    borderRadius: BorderRadius.circular(8),
-                    color: Colors.white,
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Container(
-                        height: 6,
-                        width: 6,
-                        margin: const EdgeInsets.only(right: 8),
-                        decoration: BoxDecoration(
-                          color: AppColors.low,
-                          shape: BoxShape.circle,
-                        ),
-                      ),
-                      const Text('Low'),
-                    ],
-                  ),
-                ),
-
+                PriorityStatusChip(priorityTitle: 'Low', priorityDotColor: AppColors.low,),
                 const SizedBox(width: 10),
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  height: 30,
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: AppColors.chipBorderColor.withAlpha(
-                        (255 * 0.5).toInt(),
-                      ),
-                    ),
-                    shape: BoxShape.rectangle,
-                    borderRadius: BorderRadius.circular(8),
-                    color: Colors.white,
-                  ),
-                  child: Center(child: Text('Open')),
-                ),
+                TicketProgressChip(progressTitle: 'Open',),
               ],
             ),
           ],
@@ -104,3 +47,6 @@ class TicketView extends StatelessWidget {
     );
   }
 }
+
+
+

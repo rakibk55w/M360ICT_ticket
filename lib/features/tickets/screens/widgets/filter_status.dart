@@ -3,7 +3,14 @@ import 'package:flutter/material.dart';
 class FilterStatus extends StatelessWidget {
   const FilterStatus({
     super.key,
+    required this.filterTitle,
+    required this.chipTextColor,
+    required this.chipBackgroundColor,
   });
+
+  final String filterTitle;
+  final Color chipTextColor;
+  final Color chipBackgroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -16,13 +23,10 @@ class FilterStatus extends StatelessWidget {
           decoration: BoxDecoration(
             shape: BoxShape.rectangle,
             borderRadius: BorderRadius.circular(10),
-            color: AppColors.chipNewBg,
+            color: chipBackgroundColor,
           ),
           child: Center(
-            child: Text(
-              'New',
-              style: TextStyle(color: AppColors.chipNew),
-            ),
+            child: Text(filterTitle, style: TextStyle(color: chipTextColor)),
           ),
         ),
       ],
