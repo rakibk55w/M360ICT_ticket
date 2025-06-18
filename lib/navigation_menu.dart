@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:m360ict/common/utils/colors.dart';
 import 'package:m360ict/screens/contacts_screen.dart';
 import 'package:m360ict/screens/profile_screen.dart';
 import 'package:m360ict/screens/tickets_screen.dart';
@@ -11,8 +12,11 @@ class NavigationMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     final navigationController = Get.put(NavigationController());
     return Scaffold(
+      backgroundColor: AppColors.backgroundColor,
       bottomNavigationBar: Obx(() {
         return NavigationBar(
+          backgroundColor: AppColors.navigationBarColor,
+          indicatorColor: AppColors.navigationBarSelectedColor,
           height: 80,
           elevation: 0,
           selectedIndex: navigationController.selectedIndex.value,
