@@ -25,14 +25,52 @@ class NavigationMenu extends StatelessWidget {
           },
 
           destinations: [
-            const NavigationDestination(icon: Icon(Icons.airplane_ticket), label: 'Tickets'),
-            const NavigationDestination(icon: Icon(Icons.person), label: 'Contacts'),
-            const NavigationDestination(icon: Icon(Icons.group), label: 'Profile'),
+            NavigationDestination(
+              icon: Image.asset(
+                'assets/icons/ticket_black.png',
+                height: 20,
+                width: 20,
+              ),
+              selectedIcon: Image.asset(
+                'assets/icons/ticket_blue.png',
+                height: 20,
+                width: 20,
+              ),
+              label: 'Tickets',
+            ),
+            NavigationDestination(
+              icon: Image.asset(
+                'assets/icons/contacts_black.png',
+                height: 24,
+                width: 24,
+              ),
+              selectedIcon: Image.asset(
+                'assets/icons/contacts_blue.png',
+                height: 24,
+                width: 24,
+              ),
+              label: 'Contacts',
+            ),
+            NavigationDestination(
+              icon: Image.asset(
+                'assets/icons/profile_black.png',
+                height: 18,
+                width: 18,
+              ),
+              selectedIcon: Image.asset(
+                'assets/icons/profile_blue.png',
+                height: 18,
+                width: 18,
+              ),
+              label: 'Profile',
+            ),
           ],
         );
       }),
       body: Obx(() {
-        return navigationController.screens[navigationController.selectedIndex.value];
+        return navigationController.screens[navigationController
+            .selectedIndex
+            .value];
       }),
     );
   }

@@ -27,6 +27,8 @@ class AppColors{
   static const Color navigationBarColor = Color(0xFFF5FEFD);
   static const Color navigationBarSelectedColor = Color(0xFFE6F6FC);
 
+  /// - Background color for notification counter
+  static const Color counterBackgroundColor = Color(0xFFFE455A);
 
   static const Color error = Color(0xFFD32F2F);
   static const Color success = Color(0xFF388E3C);
