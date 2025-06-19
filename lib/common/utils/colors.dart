@@ -42,6 +42,9 @@ class AppColors{
   /// - Background color of chip if selected
   static const Color chipSelectedColor = Color(0xFFD2E5F5);
 
+  /// - Profile tile color
+  static const Color profileTileColor = Color(0xFFE6F6FC);
+
   static const Color error = Color(0xFFD32F2F);
   static const Color success = Color(0xFF388E3C);
   static const Color warning = Color(0xFFF57C00);
