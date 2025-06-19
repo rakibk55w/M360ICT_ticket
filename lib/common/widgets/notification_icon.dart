@@ -11,7 +11,7 @@ class NotificationWithCounter extends StatelessWidget {
     return Stack(
       children: [
         IconButton(
-          onPressed: () => Get.to(() => const FilterScreen()),
+          onPressed: () {},
           icon: Image.asset(
             'assets/icons/notification.png',
             height: 18,

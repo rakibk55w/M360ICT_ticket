@@ -38,7 +38,20 @@ class ContactCard extends StatelessWidget {
               SizedBox(width: 8),
               Text(contactName),
               Spacer(),
-              Icon(Icons.more_horiz, size: 25),
+              //IconButton(onPressed: (){}, icon: Icon(Icons.more_horiz, size: 25),)
+              PopupMenuButton<String>(
+                offset: Offset(0, 40),
+                constraints: BoxConstraints(minWidth: 200),
+                color: Colors.white,
+                icon: Icon(Icons.more_horiz, size: 25,),
+                onSelected: (value) {},
+                itemBuilder: (context) => [
+                  PopupMenuItem(value: 'edit', child: Text('Edit')),
+                  PopupMenuItem(value: 'view', child: Text('View Tickets')),
+                  PopupMenuItem(value: 'delete', child: Text('Delete')),
+                ],
+              )
+
             ],
           ),
           SizedBox(height: 16),
