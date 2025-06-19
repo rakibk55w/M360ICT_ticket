@@ -4,6 +4,7 @@ import 'package:m360ict/common/widgets/appbar.dart';
 import 'package:m360ict/common/widgets/searchbar.dart';
 import 'package:m360ict/features/tickets/screens/widgets/filter_status_options.dart';
 import 'package:m360ict/features/tickets/screens/widgets/priority_dropdown.dart';
+import 'package:m360ict/features/tickets/screens/widgets/ticket_progress_chip.dart';
 
 class FilterScreen extends StatelessWidget {
   const FilterScreen({super.key});
@@ -44,6 +45,16 @@ class FilterScreen extends StatelessWidget {
 
             const SizedBox(height: 8),
             CustomSearchbar(hintText: 'Search tags',),
+            const SizedBox(height: 16),
+            Row(
+              children: [
+                TicketProgressChip(progressTitle: 'Open'),
+                const SizedBox(width: 8),
+                TicketProgressChip(progressTitle: 'Spam', isSelected: true,),
+                const SizedBox(width: 8),
+                TicketProgressChip(progressTitle: 'Closed',),
+              ],
+            )
           ],
         ),
       ),

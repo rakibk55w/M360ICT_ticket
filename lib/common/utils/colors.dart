@@ -39,8 +39,8 @@ class AppColors{
   /// - Background color of search bar
   static const Color searchBarBackgroundColor = Color(0xFFE7E7F4);
 
-
-
+  /// - Background color of chip if selected
+  static const Color chipSelectedColor = Color(0xFFD2E5F5);
 
   static const Color error = Color(0xFFD32F2F);
   static const Color success = Color(0xFF388E3C);
