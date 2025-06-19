@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:m360ict/common/utils/colors.dart';
+import 'package:m360ict/features/tickets/screens/filter_screen.dart';
 
 class NotificationWithCounter extends StatelessWidget {
   const NotificationWithCounter({super.key});
@@ -9,7 +11,7 @@ class NotificationWithCounter extends StatelessWidget {
     return Stack(
       children: [
         IconButton(
-          onPressed: () {},
+          onPressed: () => Get.to(() => const FilterScreen()),
           icon: Image.asset(
             'assets/icons/notification.png',
             height: 18,
