@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:m360ict/common/utils/colors.dart';
 import 'package:m360ict/common/widgets/appbar.dart';
 import 'package:m360ict/common/widgets/searchbar.dart';
 import 'package:m360ict/features/tickets/screens/widgets/filter_status_options.dart';
@@ -20,9 +19,12 @@ class FilterScreen extends StatelessWidget {
     final int selectedIndex = 0;
     final priorityOptions = ['Low', 'Medium', 'Urgent'];
     return Scaffold(
+      /// - Appbar
       appBar: CustomAppbar(
-        title: Text('Filters', style: TextStyle(fontSize: 16)),
+        title: const Text('Filters', style: TextStyle(fontSize: 16)),
         showBackArrow: true,
+
+        /// - Apply button
         actions: [
           TextButton(
             onPressed: () {},
@@ -35,23 +37,32 @@ class FilterScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Column(children: [Text('Status')]),
+            /// - Status heading text
+            const Column(children: [Text('Status')]),
+
+            /// - Status options
             FilterStatusOptions(options: options, selectedIndex: selectedIndex),
             const SizedBox(height: 16),
+
+            /// - Priority options
             PriorityDropdown(priorityOptions: priorityOptions),
             const SizedBox(height: 8),
 
+            /// - Tags heading text
             const Text('Tags'),
-
             const SizedBox(height: 8),
-            CustomSearchbar(hintText: 'Search tags',),
+
+            /// - Search bar
+            const CustomSearchbar(hintText: 'Search tags',),
             const SizedBox(height: 16),
-            Row(
+
+            /// - Progress filters
+            const Row(
               children: [
                 TicketProgressChip(progressTitle: 'Open'),
-                const SizedBox(width: 8),
+                SizedBox(width: 8),
                 TicketProgressChip(progressTitle: 'Spam', isSelected: true,),
-                const SizedBox(width: 8),
+                SizedBox(width: 8),
                 TicketProgressChip(progressTitle: 'Closed',),
               ],
             )

@@ -18,12 +18,15 @@ class TicketsScreen extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
+            /// - No. of tickets with filter icon
             const SummaryDashboard(dashboardText: '7 tickets', showFilter: true,),
+
+            /// - Tickets
             ListView.separated(
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
-              itemBuilder: (context, __) => TicketView(),
-              separatorBuilder: (context, __) => SizedBox(height: 10),
+              itemBuilder: (context, __) => const TicketView(),
+              separatorBuilder: (context, __) => const SizedBox(height: 10),
               itemCount: 8,
             ),
           ],

@@ -25,20 +25,20 @@ class TicketView extends StatelessWidget {
           children: [
             FilterStatus(filterTitle: 'New', chipTextColor: AppColors.chipNew, chipBackgroundColor: AppColors.chipNewBg),
             const SizedBox(height: 6),
-            Text('#ID 132198423'),
+            const Text('#ID 132198423'),
             const SizedBox(height: 6),
-            Text(
+            const Text(
               'Search view, which can display dynamic suggestions, is the focused state of search bar.',
             ),
             const SizedBox(height: 6),
-            TicketUserDetail(name: 'Michale', date: '23 Dec 2023', time: '03:43 PM'),
-            Divider(),
+            const TicketUserDetail(name: 'Michale', date: '23 Dec 2023', time: '03:43 PM'),
+            const Divider(),
             const SizedBox(height: 6),
             Row(
               children: [
                 PriorityStatusChip(priorityTitle: 'Low', priorityDotColor: AppColors.low,),
                 const SizedBox(width: 10),
-                TicketProgressChip(progressTitle: 'Open',),
+                const TicketProgressChip(progressTitle: 'Open',),
               ],
             ),
           ],

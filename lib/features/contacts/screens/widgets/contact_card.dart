@@ -31,48 +31,63 @@ class ContactCard extends StatelessWidget {
         children: [
           Row(
             children: [
+              /// - User picture
               CircleAvatar(
                 radius: 20,
                 backgroundImage: AssetImage(contactImage),
               ),
-              SizedBox(width: 8),
+              const SizedBox(width: 8),
+
+              /// - User name
               Text(contactName),
-              Spacer(),
-              //IconButton(onPressed: (){}, icon: Icon(Icons.more_horiz, size: 25),)
+              const Spacer(),
+
+              /// - More options
               PopupMenuButton<String>(
-                offset: Offset(0, 40),
-                constraints: BoxConstraints(minWidth: 200),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                offset: const Offset(0, 40),
+                constraints: const BoxConstraints(minWidth: 200),
                 color: Colors.white,
-                icon: Icon(Icons.more_horiz, size: 25,),
+                icon: const Icon(Icons.more_horiz, size: 25),
                 onSelected: (value) {},
                 itemBuilder: (context) => [
-                  PopupMenuItem(value: 'edit', child: Text('Edit')),
-                  PopupMenuItem(value: 'view', child: Text('View Tickets')),
-                  PopupMenuItem(value: 'delete', child: Text('Delete')),
+                  const PopupMenuItem(value: 'edit', child: Text('Edit')),
+                  const PopupMenuItem(
+                    value: 'view',
+                    child: Text('View Tickets'),
+                  ),
+                  const PopupMenuItem(value: 'delete', child: Text('Delete')),
                 ],
-              )
-
+              ),
             ],
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
+
+          /// - User email
           Row(
             children: [
-              Icon(Icons.email_outlined, size: 15),
-              SizedBox(width: 4),
+              const Icon(Icons.email_outlined, size: 15),
+              const SizedBox(width: 4),
               Text(contactEmail),
             ],
           ),
+
+          /// - User phone number
           Row(
             children: [
-              Icon(Icons.wifi_calling_3_outlined, size: 15),
-              SizedBox(width: 4),
+              const Icon(Icons.wifi_calling_3_outlined, size: 15),
+              const SizedBox(width: 4),
               Text(contactPhone),
             ],
           ),
+
+          /// - User address
           Row(
             children: [
-              Icon(Icons.location_on_outlined, size: 15),
-              SizedBox(width: 4),
+              const Icon(Icons.location_on_outlined, size: 15),
+              const SizedBox(width: 4),
               Text(contactAddress ?? 'Not added yet'),
             ],
           ),

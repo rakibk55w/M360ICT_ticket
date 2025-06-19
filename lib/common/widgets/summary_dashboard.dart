@@ -27,7 +27,7 @@ class SummaryDashboard extends StatelessWidget {
                   onPressed: () => Get.to(() => const FilterScreen()),
                   icon: const Icon(Icons.filter_alt_outlined),
                 )
-              : SizedBox.shrink(),
+              : const SizedBox.shrink(),
         ],
       ),
     );

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:m360ict/common/utils/colors.dart';
-import 'package:m360ict/common/utils/device_utility.dart';
 import 'package:m360ict/common/widgets/appbar.dart';
 import 'package:m360ict/common/widgets/notification_icon.dart';
 import 'package:m360ict/common/widgets/searchbar.dart';
@@ -13,25 +11,32 @@ class ContactsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppbar(
+      /// - Appbar
+      appBar: const CustomAppbar(
         title: Text('M360ICT'),
         actions: [NotificationWithCounter()],
       ),
+
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Column(
             children: [
+              /// - Search bar
               const CustomSearchbar(hintText: 'Search contacts'),
-              SummaryDashboard(dashboardText: '10 contacts', padding: EdgeInsets.only(left: 0, top: 16, bottom: 8),),
+
+              /// - No. of contacts
+              const SummaryDashboard(dashboardText: '10 contacts', padding: EdgeInsets.only(left: 0, top: 16, bottom: 8),),
               const SizedBox(height: 8),
+
+              /// - Contact cards
               ListView.separated(
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 itemCount: 10,
-                separatorBuilder: (context, index) => SizedBox(height: 10),
-                itemBuilder: (context, index) => ContactCard(
+                separatorBuilder: (context, index) => const SizedBox(height: 10),
+                itemBuilder: (context, index) => const ContactCard(
                   contactImage: 'assets/images/elon_musk.jpg',
                   contactName: 'Elon Musk',
                   contactEmail: 'michel@email.com',
