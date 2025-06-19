@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:m360ict/common/utils/colors.dart';
 import 'package:m360ict/common/widgets/appbar.dart';
+import 'package:m360ict/common/widgets/searchbar.dart';
 import 'package:m360ict/features/tickets/screens/widgets/filter_status_options.dart';
 import 'package:m360ict/features/tickets/screens/widgets/priority_dropdown.dart';
 
@@ -42,23 +43,12 @@ class FilterScreen extends StatelessWidget {
             const Text('Tags'),
 
             const SizedBox(height: 8),
-            TextField(
-              decoration: InputDecoration(
-                filled: true,
-                fillColor: AppColors.searchBarBackgroundColor,
-                contentPadding: EdgeInsets.symmetric(horizontal: 6),
-                prefixIcon: Icon(Icons.search),
-                hintText: 'Search tags',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30),
-                  borderSide: BorderSide.none
-                ),
-            )
-            )
+            CustomSearchbar(hintText: 'Search tags',),
           ],
         ),
       ),
     );
   }
 }
+
 
