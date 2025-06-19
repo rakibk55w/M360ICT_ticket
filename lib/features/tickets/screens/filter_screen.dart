@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:m360ict/common/utils/colors.dart';
 import 'package:m360ict/common/widgets/appbar.dart';
 import 'package:m360ict/features/tickets/screens/widgets/filter_status_options.dart';
+import 'package:m360ict/features/tickets/screens/widgets/priority_dropdown.dart';
 
 class FilterScreen extends StatelessWidget {
   const FilterScreen({super.key});
@@ -34,40 +36,29 @@ class FilterScreen extends StatelessWidget {
             Column(children: [Text('Status')]),
             FilterStatusOptions(options: options, selectedIndex: selectedIndex),
             const SizedBox(height: 16),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('Priority'),
-                const SizedBox(height: 8,),
-                Container(
-                  height: 51,
-                  padding: EdgeInsets.symmetric(horizontal: 8),
-                  decoration: BoxDecoration(
-                    shape: BoxShape.rectangle,
-                    borderRadius: BorderRadius.circular(6),
-                    border: Border.all(color: Colors.grey, width: 1.5),
-                  ),
-                  child: DropdownButtonHideUnderline(
-                    child: DropdownButton<String>(
-                      icon: Icon(Icons.keyboard_arrow_down),
-                      value: null,
-                      onChanged: (_) {},
-                      items: priorityOptions.map((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value),
-                        );
-                      }).toList(),
-                      hint: const Text("Select priority"),
-                      isExpanded: true,
-                    ),
-                  ),
+            PriorityDropdown(priorityOptions: priorityOptions),
+            const SizedBox(height: 8),
+
+            const Text('Tags'),
+
+            const SizedBox(height: 8),
+            TextField(
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: AppColors.searchBarBackgroundColor,
+                contentPadding: EdgeInsets.symmetric(horizontal: 6),
+                prefixIcon: Icon(Icons.search),
+                hintText: 'Search tags',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  borderSide: BorderSide.none
                 ),
-              ],
-            ),
+            )
+            )
           ],
         ),
       ),
     );
   }
 }
+

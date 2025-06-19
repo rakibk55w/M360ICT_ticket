@@ -36,6 +36,11 @@ class AppColors{
   /// - Background color of ticket
   static const Color ticketColorBg = Color(0xFFF4F4F6);
 
+  /// - Background color of search bar
+  static const Color searchBarBackgroundColor = Color(0xFFE7E7F4);
+
+
+
 
   static const Color error = Color(0xFFD32F2F);
   static const Color success = Color(0xFF388E3C);
