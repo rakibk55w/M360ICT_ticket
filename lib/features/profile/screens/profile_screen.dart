@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:m360ict/common/utils/colors.dart';
 import 'package:m360ict/common/widgets/appbar.dart';
 import 'package:m360ict/features/profile/screens/widgets/profile_tile.dart';
+import 'package:m360ict/features/profile/screens/widgets/user_role_card.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -52,43 +53,11 @@ class ProfileScreen extends StatelessWidget {
           ),
 
           /// - List of roles
-          Padding(
-            padding: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
-            child: Container(
-              width: 330,
-              decoration: BoxDecoration(
-                shape: BoxShape.rectangle,
-                borderRadius: BorderRadius.circular(10),
-                color: AppColors.ticketColorBg,
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('Manager', style: TextStyle(fontSize: 20),),
-                    Divider(),
-                    Text('Group', style: TextStyle(fontSize: 11),),
-                    Text('Codecayaneon support', style: TextStyle(fontSize: 13),),
-                    SizedBox(height: 8,),
-                    Text('Manager', style: TextStyle(fontSize: 11),),
-                    SizedBox(height: 4,),
-                    Row(
-                      children: [
-                        CircleAvatar(
-                          backgroundImage: AssetImage(
-                            'assets/images/elon_musk.jpg',
-                          ),
-                          radius: 12,
-                        ),
-                        SizedBox(width: 8,),
-                        Text('Jonaus Kahnwald')
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ),
+          UserRoleCard(
+            headingRole: 'Manager',
+            groupName: 'Codecayaneon support',
+            managerImage: 'assets/images/elon_musk.jpg',
+            managerName: 'Jonaus Kahnwald',
           ),
         ],
       ),
