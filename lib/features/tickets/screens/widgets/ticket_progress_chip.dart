@@ -17,9 +17,11 @@ class TicketProgressChip extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 10),
       height: 30,
       decoration: BoxDecoration(
-        border: isSelected ? Border.all(color: Colors.transparent) : Border.all(
-          color: AppColors.chipBorderColor.withAlpha((255 * 0.5).toInt()),
-        ),
+        border: isSelected
+            ? Border.all(color: Colors.transparent)
+            : Border.all(
+                color: AppColors.chipBorderColor.withAlpha((255 * 0.5).toInt()),
+              ),
         borderRadius: BorderRadius.circular(8),
         shape: BoxShape.rectangle,
         color: isSelected ? AppColors.chipSelectedColor : Colors.white,
