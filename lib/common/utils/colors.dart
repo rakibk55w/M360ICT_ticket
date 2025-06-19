@@ -45,6 +45,12 @@ class AppColors{
   /// - Profile tile color
   static const Color profileTileColor = Color(0xFFE6F6FC);
 
+  /// - Logout button color
+  static const Color logoutButtonColor = Color(0xFFFFDADE);
+
+  /// - Logout text color
+  static const Color logoutTextColor = Color(0xFFFE3A55);
+
   static const Color error = Color(0xFFD32F2F);
   static const Color success = Color(0xFF388E3C);
   static const Color warning = Color(0xFFF57C00);

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:m360ict/common/utils/colors.dart';
+import 'package:m360ict/common/utils/device_utility.dart';
 import 'package:m360ict/common/widgets/appbar.dart';
 import 'package:m360ict/features/profile/screens/widgets/profile_tile.dart';
 import 'package:m360ict/features/profile/screens/widgets/user_role_card.dart';
@@ -34,14 +35,14 @@ class ProfileScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('First Name'),
-                Text('Jonaus'),
-                SizedBox(height: 8),
-                Text('Last Name'),
-                Text('Kahnwald'),
-                SizedBox(height: 8),
-                Text('Email'),
-                Text('username@email.com'),
+                const Text('First Name'),
+                const Text('Jonaus'),
+                const SizedBox(height: 8),
+                const Text('Last Name'),
+                const Text('Kahnwald'),
+                const SizedBox(height: 8),
+                const Text('Email'),
+                const Text('username@email.com'),
               ],
             ),
           ),
@@ -53,12 +54,47 @@ class ProfileScreen extends StatelessWidget {
           ),
 
           /// - List of roles
-          UserRoleCard(
-            headingRole: 'Manager',
-            groupName: 'Codecayaneon support',
-            managerImage: 'assets/images/elon_musk.jpg',
-            managerName: 'Jonaus Kahnwald',
+          SizedBox(
+            height: 200,
+            child:
+               ListView.separated(
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                itemCount: 3,
+                separatorBuilder: (context, index) => const SizedBox(width: 8),
+                itemBuilder: (context, index) => const UserRoleCard(
+                  headingRole: 'Manager',
+                  groupName: 'Codecayaneon support',
+                  managerImage: 'assets/images/elon_musk.jpg',
+                  managerName: 'Jonaus Kahnwald',
+                ),
+              ),
           ),
+
+          /// - Logout button
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 12),
+            child: GestureDetector(
+              onTap: (){},
+              child: Container(
+                padding: const EdgeInsets.only(right: 8),
+                width: AppDeviceUtils.getScreenWidth(context),
+                height: 35,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: AppColors.logoutButtonColor
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.logout, size: 16, color: AppColors.logoutTextColor,),
+                    const SizedBox(width: 8,),
+                    const Text('Logout', style: TextStyle(color: AppColors.logoutTextColor)),
+                  ],
+                ),
+              ),
+            ),
+          )
         ],
       ),
     );
