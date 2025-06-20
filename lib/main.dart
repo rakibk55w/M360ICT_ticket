@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:m360ict/common/utils/general_bindings.dart';
 import 'package:m360ict/navigation_menu.dart';
 
 void main() {
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'M360ICT',
+      initialBinding: GeneralBinding(),
       home: const NavigationMenu(),
     );
   }
