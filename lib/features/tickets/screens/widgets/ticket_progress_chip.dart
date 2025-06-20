@@ -5,7 +5,7 @@ class TicketProgressChip extends StatelessWidget {
   const TicketProgressChip({
     super.key,
     required this.progressTitle,
-    this.isSelected = false,
+    this.isSelected = false
   });
 
   final String progressTitle;
@@ -35,7 +35,7 @@ class TicketProgressChip extends StatelessWidget {
               ? Image.asset('assets/icons/selected.png', height: 16, width: 16)
               : const SizedBox.shrink(),
           isSelected ? const SizedBox(width: 5) : const SizedBox.shrink(),
-          Text(progressTitle),
+          Text(progressTitle, style: const TextStyle(color: AppColors.ticketPriorityTextColor, fontWeight: FontWeight.w500, fontSize: 12)),
         ],
       ),
     );

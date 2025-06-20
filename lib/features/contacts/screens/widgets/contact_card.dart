@@ -39,7 +39,7 @@ class ContactCard extends StatelessWidget {
               const SizedBox(width: 8),
 
               /// - User name
-              Text(contactName),
+              Text(contactName, style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 16)),
               const Spacer(),
 
               /// - More options
@@ -70,7 +70,7 @@ class ContactCard extends StatelessWidget {
             children: [
               const Icon(Icons.email_outlined, size: 15),
               const SizedBox(width: 4),
-              Text(contactEmail),
+              Text(contactEmail, style: const TextStyle(color: AppColors.ticketNameTextColor)),
             ],
           ),
 
@@ -79,7 +79,7 @@ class ContactCard extends StatelessWidget {
             children: [
               const Icon(Icons.wifi_calling_3_outlined, size: 15),
               const SizedBox(width: 4),
-              Text(contactPhone),
+              Text(contactPhone, style: const TextStyle(color: AppColors.ticketNameTextColor)),
             ],
           ),
 
@@ -88,7 +88,7 @@ class ContactCard extends StatelessWidget {
             children: [
               const Icon(Icons.location_on_outlined, size: 15),
               const SizedBox(width: 4),
-              Text(contactAddress ?? 'Not added yet'),
+              Text(contactAddress ?? 'Not added yet', style: const TextStyle(color: AppColors.ticketNameTextColor)),
             ],
           ),
         ],

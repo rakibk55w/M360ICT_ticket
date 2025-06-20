@@ -51,6 +51,27 @@ class AppColors{
   /// - Logout text color
   static const Color logoutTextColor = Color(0xFFFE3A55);
 
+  /// - Ticket ID text color
+  static const Color idTextColor = Color(0xFFBBBBBB);
+
+  /// - Ticket name text color
+  static const Color ticketNameTextColor = Color(0xFF797979);
+
+  /// - Ticket priority text color
+  static const Color ticketPriorityTextColor = Color(0xFF858585);
+
+  /// - Filter options text color
+  static const Color filterOptionsTextColor = Color(0xFF444776);
+
+  /// - Searchbar hint text color
+  static const Color searchbarHintTextColor = Color(0xFF8A8A8B);
+
+  /// - Profile tile role text color
+  static const Color roleTextColor = Color(0xFFC4C9CB);
+
+  /// - Profile info text color
+  static const Color infoTextColor = Color(0xFFBDBDBD);
+
   static const Color error = Color(0xFFD32F2F);
   static const Color success = Color(0xFF388E3C);
   static const Color warning = Color(0xFFF57C00);

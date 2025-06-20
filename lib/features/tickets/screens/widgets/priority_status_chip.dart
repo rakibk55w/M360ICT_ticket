@@ -37,7 +37,7 @@ class PriorityStatusChip extends StatelessWidget {
               shape: BoxShape.circle,
             ),
           ),
-          Text(priorityTitle),
+          Text(priorityTitle, style: const TextStyle(color: AppColors.ticketPriorityTextColor, fontWeight: FontWeight.w500, fontSize: 12)),
         ],
       ),
     );

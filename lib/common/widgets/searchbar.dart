@@ -15,6 +15,7 @@ class CustomSearchbar extends StatelessWidget {
         contentPadding: const EdgeInsets.symmetric(horizontal: 6),
         prefixIcon: const Icon(Icons.search),
         hintText: hintText,
+        hintStyle: const TextStyle(color: AppColors.searchbarHintTextColor, fontWeight: FontWeight.w500),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30),
           borderSide: BorderSide.none,

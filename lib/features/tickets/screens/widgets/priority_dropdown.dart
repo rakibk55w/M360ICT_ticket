@@ -13,7 +13,7 @@ class PriorityDropdown extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text('Priority'),
+        const Text('Priority', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14)),
         const SizedBox(height: 8,),
         Container(
           height: 50,
@@ -31,7 +31,7 @@ class PriorityDropdown extends StatelessWidget {
               items: priorityOptions.map((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
-                  child: Text(value),
+                  child: Text(value, style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 15)),
                 );
               }).toList(),
               hint: const Text("Select priority"),

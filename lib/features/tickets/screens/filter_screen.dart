@@ -21,7 +21,7 @@ class FilterScreen extends StatelessWidget {
     return Scaffold(
       /// - Appbar
       appBar: CustomAppbar(
-        title: const Text('Filters', style: TextStyle(fontSize: 16)),
+        title: const Text('Filters', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
         showBackArrow: true,
 
         /// - Apply button
@@ -38,7 +38,7 @@ class FilterScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             /// - Status heading text
-            const Column(children: [Text('Status')]),
+            const Column(children: [Text('Status', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15))]),
 
             /// - Status options
             FilterStatusOptions(options: options, selectedIndex: selectedIndex),
@@ -49,7 +49,7 @@ class FilterScreen extends StatelessWidget {
             const SizedBox(height: 8),
 
             /// - Tags heading text
-            const Text('Tags'),
+            const Text('Tags', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14)),
             const SizedBox(height: 8),
 
             /// - Search bar

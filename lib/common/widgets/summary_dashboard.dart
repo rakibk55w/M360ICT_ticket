@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:m360ict/common/utils/colors.dart';
 import 'package:m360ict/features/tickets/screens/filter_screen.dart';
 
 class SummaryDashboard extends StatelessWidget {
@@ -21,7 +22,7 @@ class SummaryDashboard extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(dashboardText),
+          Text(dashboardText, style: const TextStyle(color: AppColors.ticketNameTextColor, fontWeight: FontWeight.w500, fontSize: 13)),
           showFilter
               ? IconButton(
                   onPressed: () => Get.to(() => const FilterScreen()),

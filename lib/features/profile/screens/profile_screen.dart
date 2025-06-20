@@ -26,7 +26,7 @@ class ProfileScreen extends StatelessWidget {
           /// - Basic info heading text
           Padding(
             padding: const EdgeInsets.all(12.0),
-            child: const Text('Basic Info'),
+            child: const Text('Basic Info', style: TextStyle(color: AppColors.ticketNameTextColor, fontWeight: FontWeight.w600),),
           ),
 
           /// - User details
@@ -35,14 +35,14 @@ class ProfileScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text('First Name'),
-                const Text('Jonaus'),
+                const Text('First Name', style: TextStyle(color: AppColors.ticketNameTextColor, fontWeight: FontWeight.w600, fontSize: 13),),
+                const Text('Jonaus', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16)),
                 const SizedBox(height: 8),
-                const Text('Last Name'),
-                const Text('Kahnwald'),
+                const Text('Last Name', style: TextStyle(color: AppColors.ticketNameTextColor, fontWeight: FontWeight.w600, fontSize: 13)),
+                const Text('Kahnwald', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16)),
                 const SizedBox(height: 8),
-                const Text('Email'),
-                const Text('username@email.com'),
+                const Text('Email', style: TextStyle(color: AppColors.ticketNameTextColor, fontWeight: FontWeight.w600, fontSize: 13)),
+                const Text('username@email.com', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16)),
               ],
             ),
           ),
@@ -50,7 +50,7 @@ class ProfileScreen extends StatelessWidget {
           /// - Basic info heading text
           Padding(
             padding: const EdgeInsets.all(12.0),
-            child: const Text('Assigned roles (3)'),
+            child: const Text('Assigned roles (3)', style: TextStyle(color: AppColors.ticketNameTextColor, fontWeight: FontWeight.w600, fontSize: 13)),
           ),
 
           /// - List of roles
@@ -89,7 +89,7 @@ class ProfileScreen extends StatelessWidget {
                   children: [
                     const Icon(Icons.logout, size: 16, color: AppColors.logoutTextColor,),
                     const SizedBox(width: 8,),
-                    const Text('Logout', style: TextStyle(color: AppColors.logoutTextColor)),
+                    const Text('Logout', style: TextStyle(color: AppColors.logoutTextColor, fontWeight: FontWeight.w600)),
                   ],
                 ),
               ),

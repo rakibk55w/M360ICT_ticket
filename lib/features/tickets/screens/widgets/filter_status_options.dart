@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:m360ict/common/utils/colors.dart';
 
 class FilterStatusOptions extends StatelessWidget {
   const FilterStatusOptions({
@@ -22,6 +23,7 @@ class FilterStatusOptions extends StatelessWidget {
               Transform.scale(
                 scale: 0.8,
                 child: Checkbox(
+                  visualDensity: VisualDensity.compact,
                   value: selectedIndex == index,
                   onChanged: (_) {},
                   activeColor: Colors.blue,
@@ -30,8 +32,7 @@ class FilterStatusOptions extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(width: 4),
-              Text(options[index]),
+              Text(options[index], style: const TextStyle(color: AppColors.filterOptionsTextColor, fontWeight: FontWeight.w400),),
             ],
           ),
         );

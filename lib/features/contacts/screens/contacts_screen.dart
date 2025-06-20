@@ -38,7 +38,7 @@ class ContactsScreen extends StatelessWidget {
                 separatorBuilder: (context, index) => const SizedBox(height: 10),
                 itemBuilder: (context, index) => const ContactCard(
                   contactImage: 'assets/images/elon_musk.jpg',
-                  contactName: 'Elon Musk',
+                  contactName: 'Michale Kahnwald',
                   contactEmail: 'michel@email.com',
                   contactPhone: '+12 34 56 78 90',
                   contactAddress: '12A, Lillistrom, Norway',

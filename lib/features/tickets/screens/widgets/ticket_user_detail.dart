@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:m360ict/common/utils/colors.dart';
 
 class TicketUserDetail extends StatelessWidget {
   const TicketUserDetail({
@@ -16,7 +17,7 @@ class TicketUserDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text(name),
+        Text(name, style: const TextStyle(color: AppColors.ticketNameTextColor, fontWeight: FontWeight.w500, fontSize: 12)),
         const SizedBox(width: 6),
         Container(
           width: 4,
@@ -24,9 +25,9 @@ class TicketUserDetail extends StatelessWidget {
           decoration: BoxDecoration(color: Colors.grey, shape: BoxShape.circle),
         ),
         const SizedBox(width: 6),
-        Text(date),
+        Text(date, style: const TextStyle(color: AppColors.ticketNameTextColor, fontWeight: FontWeight.w500, fontSize: 12)),
         const SizedBox(width: 6),
-        Text(time),
+        Text(time, style: const TextStyle(color: AppColors.ticketNameTextColor, fontWeight: FontWeight.w500, fontSize: 12)),
       ],
     );
   }

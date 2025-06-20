@@ -26,8 +26,8 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
               onPressed: () => Get.back(),
               icon: Image.asset(
                 'assets/icons/close.png',
-                height: 16,
-                width: 16,
+                height: 13,
+                width: 13,
               ),
             )
           : null,

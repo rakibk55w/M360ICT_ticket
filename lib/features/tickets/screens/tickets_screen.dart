@@ -10,8 +10,8 @@ class TicketsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppbar(
-        title: Text('M360ICT'),
+      appBar:  CustomAppbar(
+        title: Text('M360ICT', style: TextStyle(fontWeight: FontWeight.w400)),
         actions: [NotificationWithCounter()],
       ),
       body: SingleChildScrollView(

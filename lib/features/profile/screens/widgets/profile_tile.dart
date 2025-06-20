@@ -16,15 +16,15 @@ class ProfileTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(profileName),
-      subtitle: Text(profileRole),
+      title: Text(profileName, style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 16)),
+      subtitle: Text(profileRole, style: const TextStyle(color: AppColors.roleTextColor, fontWeight: FontWeight.w800),),
       leading: CircleAvatar(
         radius: 30,
         backgroundImage: AssetImage(profileImage),
       ),
-      trailing: IconButton(onPressed: () {}, icon: Icon(Icons.edit)),
+      trailing: IconButton(onPressed: () {}, icon: const Icon(Icons.edit)),
       tileColor: AppColors.profileTileColor,
-      contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 8),
+      contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
     );
   }
 }

@@ -31,12 +31,12 @@ class UserRoleCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(headingRole, style: const TextStyle(fontSize: 20)),
+              Text(headingRole, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500)),
               const Divider(),
-              const Text('Group', style: TextStyle(fontSize: 11)),
-              Text(groupName, style: const TextStyle(fontSize: 13)),
+              const Text('Group', style: TextStyle(color: AppColors.ticketNameTextColor, fontWeight: FontWeight.w600, fontSize: 13)),
+              Text(groupName, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w400)),
               SizedBox(height: 8),
-              const Text('Manager', style: TextStyle(fontSize: 11)),
+              const Text('Manager', style: TextStyle(color: AppColors.ticketNameTextColor, fontWeight: FontWeight.w600, fontSize: 13)),
               const SizedBox(height: 4),
               Row(
                 children: [
@@ -45,7 +45,7 @@ class UserRoleCard extends StatelessWidget {
                     radius: 12,
                   ),
                   const SizedBox(width: 8),
-                  Text(managerName),
+                  Text(managerName, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w400)),
                 ],
               ),
             ],

@@ -26,7 +26,7 @@ class FilterStatus extends StatelessWidget {
             color: chipBackgroundColor,
           ),
           child: Center(
-            child: Text(filterTitle, style: TextStyle(color: chipTextColor)),
+            child: Text(filterTitle, style: TextStyle(color: chipTextColor, fontWeight: FontWeight.w600)),
           ),
         ),
       ],
