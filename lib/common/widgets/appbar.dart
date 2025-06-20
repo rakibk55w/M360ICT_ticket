@@ -17,6 +17,7 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      forceMaterialTransparency: true,
       automaticallyImplyLeading: false,
       title: title,
       actions: actions,
