@@ -34,45 +34,28 @@ class TicketsScreen extends StatelessWidget {
             /// - Generating tickets from ticket model
             Obx(() {
               if (ticketController.isTicketLoading.value) {
-                // return ShimmerEffect(child: Padding(
-                //   padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                //   child: Container(
-                //     width: AppDeviceUtils.getScreenWidth(context),
-                //     padding: const EdgeInsets.all(10),
-                //     decoration: BoxDecoration(
-                //       borderRadius: BorderRadius.circular(10),
-                //       color: Colors.white,
-                //     ),
-                //     child: Column(
-                //       crossAxisAlignment: CrossAxisAlignment.start,
-                //       children: [
-                //         const FilterStatus(filterTitle: 'New', chipTextColor: AppColors.chipNew, chipBackgroundColor: AppColors.chipNewBg),
-                //         const SizedBox(height: 6),
-                //         Text('#ID ${ticket.id}', style: const TextStyle(color: AppColors.idTextColor, fontWeight: FontWeight.w600, fontSize: 11)),
-                //         const SizedBox(height: 6),
-                //         Text(
-                //           ticket.detail, style: const TextStyle(
-                //             fontWeight: FontWeight.w500, fontSize: 13
-                //         ),
-                //         ),
-                //         const SizedBox(height: 6),
-                //         TicketUserDetail(name: ticket.submittedBy, date: ticket.date, time: ticket.time),
-                //         const Divider(),
-                //         const SizedBox(height: 6),
-                //         Row(
-                //           children: [
-                //             PriorityStatusChip(priorityTitle: ticket.priority, priorityDotColor: AppColors.low,),
-                //             const SizedBox(width: 8),
-                //             TicketProgressChip(progressTitle: ticket.progress,),
-                //             const SizedBox(width: 8),
-                //             ticket.spam ? const TicketSpamChip() : const SizedBox.shrink(),
-                //           ],
-                //         ),
-                //       ],
-                //     ),
-                //   ),
-                // ),);
-                return const Center(child: CircularProgressIndicator());
+                return ListView.separated(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: 4,
+                  separatorBuilder: (context, __) => const SizedBox(height: 10),
+                  itemBuilder: (context, index) {
+                    return ShimmerEffect(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                        child: Container(
+                          width: AppDeviceUtils.getScreenWidth(context),
+                          height: 200,
+                          padding: const EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                );
               }
 
               if (ticketController.tickets.isEmpty) {

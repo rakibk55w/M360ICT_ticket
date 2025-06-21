@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:m360ict/common/utils/color_setter.dart';
 import 'package:m360ict/common/utils/colors.dart';
 import 'package:m360ict/common/utils/device_utility.dart';
 import 'package:m360ict/features/tickets/model/ticket_model.dart';
@@ -27,24 +28,42 @@ class TicketView extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const FilterStatus(filterTitle: 'New', chipTextColor: AppColors.chipNew, chipBackgroundColor: AppColors.chipNewBg),
-            const SizedBox(height: 6),
-            Text('#ID ${ticket.id}', style: const TextStyle(color: AppColors.idTextColor, fontWeight: FontWeight.w600, fontSize: 11)),
+            FilterStatus(
+              filterTitle: ticket.status,
+              chipTextColor: ColorSetter.chipTextColors[ticket.status]!,
+              chipBackgroundColor: ColorSetter.chipBgColors[ticket.status]!,
+            ),
             const SizedBox(height: 6),
             Text(
-              ticket.detail, style: const TextStyle(
-              fontWeight: FontWeight.w500, fontSize: 13
-            ),
+              '#ID ${ticket.id}',
+              style: const TextStyle(
+                color: AppColors.idTextColor,
+                fontWeight: FontWeight.w600,
+                fontSize: 11,
+              ),
             ),
             const SizedBox(height: 6),
-            TicketUserDetail(name: ticket.submittedBy, date: ticket.date, time: ticket.time),
+            Text(
+              ticket.detail,
+              style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 13),
+            ),
+            const SizedBox(height: 6),
+            TicketUserDetail(
+              name: ticket.submittedBy,
+              date: ticket.date,
+              time: ticket.time,
+            ),
             const Divider(),
             const SizedBox(height: 6),
             Row(
               children: [
-                PriorityStatusChip(priorityTitle: ticket.priority, priorityDotColor: AppColors.low,),
+                PriorityStatusChip(
+                  priorityTitle: ticket.priority,
+                  priorityDotColor:
+                      ColorSetter.priorityDotColors[ticket.priority]!,
+                ),
                 const SizedBox(width: 8),
-                TicketProgressChip(progressTitle: ticket.progress,),
+                TicketProgressChip(progressTitle: ticket.progress),
                 const SizedBox(width: 8),
                 ticket.spam ? const TicketSpamChip() : const SizedBox.shrink(),
               ],
@@ -55,6 +74,3 @@ class TicketView extends StatelessWidget {
     );
   }
 }
-
-
-
