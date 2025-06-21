@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:m360ict/common/loader/shimmer.dart';
+import 'package:m360ict/common/utils/device_utility.dart';
 import 'package:m360ict/common/widgets/appbar.dart';
 import 'package:m360ict/common/widgets/notification_icon.dart';
 import 'package:m360ict/common/widgets/searchbar.dart';
 import 'package:m360ict/common/widgets/summary_dashboard.dart';
+import 'package:m360ict/features/contacts/controllers/contact_controller.dart';
 import 'package:m360ict/features/contacts/screens/widgets/contact_card.dart';
 
 class ContactsScreen extends StatelessWidget {
@@ -10,6 +14,8 @@ class ContactsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final contactController = Get.put(ContactController());
+
     return Scaffold(
       /// - Appbar
       appBar: const CustomAppbar(
@@ -19,32 +25,69 @@ class ContactsScreen extends StatelessWidget {
 
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-        child: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
-          child: Column(
-            children: [
-              /// - Search bar
-              const CustomSearchbar(hintText: 'Search contacts'),
+        child: RefreshIndicator(
+          onRefresh: () async{
+            await contactController.fetchContacts();
+          },
+          child: SingleChildScrollView(
+            physics: const AlwaysScrollableScrollPhysics(),
+            child: Column(
+              children: [
+                /// - Search bar
+                const CustomSearchbar(hintText: 'Search contacts'),
 
-              /// - No. of contacts
-              const SummaryDashboard(dashboardText: '10 contacts', padding: EdgeInsets.only(left: 0, top: 16, bottom: 8),),
-              const SizedBox(height: 8),
+                /// - No. of contacts
+                Obx(() => SummaryDashboard(dashboardText: '${contactController.contacts.length} contacts', padding: const EdgeInsets.only(left: 0, top: 16, bottom: 8),)),
+                const SizedBox(height: 8),
 
-              /// - Contact cards
-              ListView.separated(
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemCount: 10,
-                separatorBuilder: (context, index) => const SizedBox(height: 10),
-                itemBuilder: (context, index) => const ContactCard(
-                  contactImage: 'assets/images/elon_musk.jpg',
-                  contactName: 'Michale Kahnwald',
-                  contactEmail: 'michel@email.com',
-                  contactPhone: '+12 34 56 78 90',
-                  contactAddress: '12A, Lillistrom, Norway',
-                ),
-              ),
-            ],
+                Obx((){
+
+                  if (contactController.isContactLoading.value) {
+                    return ListView.separated(
+                      physics: const NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: 5,
+                      separatorBuilder: (context, __) => const SizedBox(height: 10),
+                      itemBuilder: (context, index) {
+                        return ShimmerEffect(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                            child: Container(
+                              width: AppDeviceUtils.getScreenWidth(context),
+                              height: 140,
+                              padding: const EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    );
+                  }
+
+                  /// - Condition for empty api response
+                  if (contactController.contacts.isEmpty) {
+                    return SizedBox(width: AppDeviceUtils.getScreenWidth(context), height: AppDeviceUtils.getScreenHeight(context));
+                  }
+                  /// - Contact cards
+                  return ListView.separated(
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: contactController.contacts.length,
+                    separatorBuilder: (context, index) => const SizedBox(height: 10),
+                    itemBuilder: (context, index) => ContactCard(
+                      contactImage: 'assets/images/elon_musk.jpg',
+                      contactName: contactController.contacts[index].name,
+                      contactEmail: contactController.contacts[index].email,
+                      contactPhone: contactController.contacts[index].phone,
+                      contactAddress: contactController.contacts[index].address,
+                    ),
+                  );
+                }),
+              ],
+            ),
           ),
         ),
       ),

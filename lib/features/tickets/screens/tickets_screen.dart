@@ -62,6 +62,7 @@ class TicketsScreen extends StatelessWidget {
                   );
                 }
 
+                /// - Condition for empty api response
                 if (ticketController.tickets.isEmpty) {
                   return SizedBox(width: AppDeviceUtils.getScreenWidth(context), height: AppDeviceUtils.getScreenHeight(context));
                 }
