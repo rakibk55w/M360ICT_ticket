@@ -19,62 +19,67 @@ class TicketsScreen extends StatelessWidget {
         title: Text('M360ICT', style: TextStyle(fontWeight: FontWeight.w400)),
         actions: [NotificationWithCounter()],
       ),
-      body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
-        child: Column(
-          children: [
-            /// - No. of tickets with filter icon
-            Obx(
-              () => SummaryDashboard(
-                dashboardText: '${ticketController.tickets.length} tickets',
-                showFilter: true,
+      body: RefreshIndicator(
+        onRefresh: () async{
+          await ticketController.fetchTickets();
+        },
+        child: SingleChildScrollView(
+          physics: const AlwaysScrollableScrollPhysics(),
+          child: Column(
+            children: [
+              /// - No. of tickets with filter icon
+              Obx(
+                () => SummaryDashboard(
+                  dashboardText: '${ticketController.tickets.length} tickets',
+                  showFilter: true,
+                ),
               ),
-            ),
 
-            /// - Generating tickets from ticket model
-            Obx(() {
-              if (ticketController.isTicketLoading.value) {
+              /// - Generating tickets from ticket model
+              Obx(() {
+                if (ticketController.isTicketLoading.value) {
+                  return ListView.separated(
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: 4,
+                    separatorBuilder: (context, __) => const SizedBox(height: 10),
+                    itemBuilder: (context, index) {
+                      return ShimmerEffect(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                          child: Container(
+                            width: AppDeviceUtils.getScreenWidth(context),
+                            height: 200,
+                            padding: const EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  );
+                }
+
+                if (ticketController.tickets.isEmpty) {
+                  return SizedBox(width: AppDeviceUtils.getScreenWidth(context), height: AppDeviceUtils.getScreenHeight(context));
+                }
+
+                /// - Tickets
                 return ListView.separated(
                   physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
-                  itemCount: 4,
+                  itemCount: ticketController.tickets.length,
                   separatorBuilder: (context, __) => const SizedBox(height: 10),
                   itemBuilder: (context, index) {
-                    return ShimmerEffect(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                        child: Container(
-                          width: AppDeviceUtils.getScreenWidth(context),
-                          height: 200,
-                          padding: const EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    );
+                    final ticket = ticketController.tickets[index];
+                    return TicketView(ticket: ticket);
                   },
                 );
-              }
-
-              if (ticketController.tickets.isEmpty) {
-                return const Center(child: Text('No tickets found'));
-              }
-
-              /// - Tickets
-              return ListView.separated(
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemCount: ticketController.tickets.length,
-                separatorBuilder: (context, __) => const SizedBox(height: 10),
-                itemBuilder: (context, index) {
-                  final ticket = ticketController.tickets[index];
-                  return TicketView(ticket: ticket);
-                },
-              );
-            }),
-          ],
+              }),
+            ],
+          ),
         ),
       ),
     );
