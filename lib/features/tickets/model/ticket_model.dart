@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class TicketModel {
   TicketModel({
     required this.id,

@@ -5,17 +5,18 @@ import 'package:m360ict/common/utils/network_manager.dart';
 
 class HttpHelper {
   static const String _baseUrl = 'https://api.jsonbin.io/v3/b';
-  // static const String _endPoint = '6855a8978561e97a502854fd/latest';
 
-  static Future<Map<String, dynamic>> get(String endpoint) async {
+  static Future<Map<String, dynamic>> get(String endPoint) async {
     final isOnline = await NetworkManager.instance.isConnected();
 
     if (!isOnline) {
       throw Exception('No internet connection');
     }
     final response = await http.get(
-      Uri.parse('$_baseUrl/endPoint'),
-      headers: {'X-Master-Key': Env.apiKey},
+      Uri.parse('$_baseUrl/$endPoint'),
+      headers: {
+        'X-Master-Key': Env.apiKey.replaceAll('DOLLAR', '\$')
+      },
     );
     return _handleResponse(response);
   }

@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:m360ict/common/http/http_client.dart';
 import 'package:m360ict/features/tickets/model/ticket_model.dart';
@@ -28,5 +27,4 @@ class TicketController extends GetxController {
       isTicketLoading.value = false;
     }
   }
-
 }
