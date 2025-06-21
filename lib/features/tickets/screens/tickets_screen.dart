@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:m360ict/common/widgets/appbar.dart';
 import 'package:m360ict/common/widgets/notification_icon.dart';
 import 'package:m360ict/common/widgets/summary_dashboard.dart';
+import 'package:m360ict/features/tickets/controllers/ticket_controller.dart';
 import 'package:m360ict/features/tickets/screens/widgets/ticket_view.dart';
 
 class TicketsScreen extends StatelessWidget {
@@ -9,6 +11,7 @@ class TicketsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //final ticketController = Get.put(TicketController());
     return Scaffold(
       appBar:  CustomAppbar(
         title: Text('M360ICT', style: TextStyle(fontWeight: FontWeight.w400)),
