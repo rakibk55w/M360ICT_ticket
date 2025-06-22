@@ -14,7 +14,7 @@ class FilterScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final filterController = Get.put(FilterController());
 
-    final priorityOptions = ['Low', 'Medium', 'Urgent'];
+    final priorityOptions = ['Select priority', 'Low', 'Medium', 'Urgent'];
     return Scaffold(
       /// - Appbar
       appBar: CustomAppbar(

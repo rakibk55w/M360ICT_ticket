@@ -7,6 +7,7 @@ class FilterController extends GetxController {
   RxList<String> status = <String>[].obs;
   RxInt selectedStatusIndex = 0.obs;
   final RxBool isStatusLoading = false.obs;
+  RxString selectedPriority = ''.obs;
 
   @override
   void onInit() {
