@@ -1,42 +1,48 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:m360ict/common/utils/colors.dart';
+import 'package:m360ict/features/tickets/controllers/filter_controller.dart';
 
 class FilterStatusOptions extends StatelessWidget {
-  const FilterStatusOptions({
-    super.key,
-    required this.options,
-    required this.selectedIndex,
-  });
-
-  final List<String> options;
-  final int? selectedIndex;
+  const FilterStatusOptions({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: List.generate(options.length, (index) {
-        return GestureDetector(
-          onTap: () {},
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Transform.scale(
-                scale: 0.8,
-                child: Checkbox(
-                  visualDensity: VisualDensity.compact,
-                  value: selectedIndex == index,
-                  onChanged: (_) {},
-                  activeColor: Colors.blue,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(4),
+    final filterController = FilterController.instance;
+
+    return Obx(() {
+      return Column(
+        children: List.generate(filterController.status.length, (index) {
+          return GestureDetector(
+            onTap: () => filterController.selectedStatusIndex.value = index,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Transform.scale(
+                  scale: 0.8,
+                  child: Checkbox(
+                    visualDensity: VisualDensity.compact,
+                    value: filterController.selectedStatusIndex.value == index,
+                    onChanged: (_) =>
+                        filterController.selectedStatusIndex.value = index,
+                    activeColor: Colors.blue,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(4),
+                    ),
                   ),
                 ),
-              ),
-              Text(options[index], style: const TextStyle(color: AppColors.filterOptionsTextColor, fontWeight: FontWeight.w400),),
-            ],
-          ),
-        );
-      }),
-    );
+                Text(
+                  filterController.status[index],
+                  style: const TextStyle(
+                    color: AppColors.filterOptionsTextColor,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ],
+            ),
+          );
+        }),
+      );
+    });
   }
 }

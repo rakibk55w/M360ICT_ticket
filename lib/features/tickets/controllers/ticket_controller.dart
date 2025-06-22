@@ -14,6 +14,7 @@ class TicketController extends GetxController {
     super.onInit();
   }
 
+  /// - Function to fetch tickets from api
   Future<void> fetchTickets() async {
     try {
       isTicketLoading.value = true;

@@ -15,6 +15,7 @@ class TicketsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final ticketController = Get.put(TicketController());
     return Scaffold(
+      /// - Appbar
       appBar: CustomAppbar(
         title: Text('M360ICT', style: TextStyle(fontWeight: FontWeight.w400)),
         actions: [NotificationWithCounter()],
@@ -64,7 +65,7 @@ class TicketsScreen extends StatelessWidget {
 
                 /// - Condition for empty api response
                 if (ticketController.tickets.isEmpty) {
-                  return SizedBox(width: AppDeviceUtils.getScreenWidth(context), height: AppDeviceUtils.getScreenHeight(context));
+                  return SizedBox(width: AppDeviceUtils.getScreenWidth(context), height: AppDeviceUtils.getScreenHeight(context) * 0.7);
                 }
 
                 /// - Tickets

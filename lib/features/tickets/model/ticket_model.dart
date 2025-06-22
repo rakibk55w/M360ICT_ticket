@@ -21,6 +21,7 @@ class TicketModel {
   final String status;
   final bool spam;
 
+  /// - Convert from json to data
   factory TicketModel.fromJson(Map<String, dynamic> json) {
     return TicketModel(
       id: json['id'],
