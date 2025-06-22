@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:m360ict/common/utils/colors.dart';
-import 'package:m360ict/features/tickets/screens/widgets/filter_status_shimmer.dart';
 
 class NotificationWithCounter extends StatelessWidget {
   const NotificationWithCounter({super.key});
