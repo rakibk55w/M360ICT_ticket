@@ -15,6 +15,8 @@ class FilterScreen extends StatelessWidget {
     final filterController = Get.put(FilterController());
 
     final priorityOptions = ['Select priority', 'Low', 'Medium', 'Urgent'];
+    final tagOptions = ['Open', 'Closed', 'Spam'];
+
     return Scaffold(
       /// - Appbar
       appBar: CustomAppbar(
@@ -67,15 +69,31 @@ class FilterScreen extends StatelessWidget {
             const SizedBox(height: 16),
 
             /// - Progress filters
-            const Row(
-              children: [
-                TicketProgressChip(progressTitle: 'Open'),
-                SizedBox(width: 8),
-                TicketProgressChip(progressTitle: 'Spam', isSelected: true),
-                SizedBox(width: 8),
-                TicketProgressChip(progressTitle: 'Closed'),
-              ],
-            ),
+            Obx(() {
+              return Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: List.generate(tagOptions.length, (index) {
+                  final isSelected =
+                      filterController.selectedTagIndex.value == index;
+
+                  return GestureDetector(
+                    onTap: () {
+                      filterController.selectedTagIndex.value =
+                          filterController.selectedTagIndex.value == index
+                          ? -1
+                          : index;
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 8.0),
+                      child: TicketProgressChip(
+                        progressTitle: tagOptions[index],
+                        isSelected: isSelected,
+                      ),
+                    ),
+                  );
+                }),
+              );
+            }),
           ],
         ),
       ),

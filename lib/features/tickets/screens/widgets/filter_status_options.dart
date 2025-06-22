@@ -13,8 +13,12 @@ class FilterStatusOptions extends StatelessWidget {
     return Obx(() {
       return Column(
         children: List.generate(filterController.status.length, (index) {
+          final isSelected =
+              filterController.selectedStatusIndex.value == index;
           return GestureDetector(
-            onTap: () => filterController.selectedStatusIndex.value = index,
+            onTap: () => filterController.selectedStatusIndex.value = isSelected
+                ? -1
+                : index,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -24,7 +28,9 @@ class FilterStatusOptions extends StatelessWidget {
                     visualDensity: VisualDensity.compact,
                     value: filterController.selectedStatusIndex.value == index,
                     onChanged: (_) =>
-                        filterController.selectedStatusIndex.value = index,
+                        filterController.selectedStatusIndex.value = isSelected
+                        ? -1
+                        : index,
                     activeColor: Colors.blue,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(4),
