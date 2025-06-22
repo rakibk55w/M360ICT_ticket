@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:m360ict/common/utils/general_bindings.dart';
 import 'package:m360ict/navigation_menu.dart';
 
-void main() {
+Future<void> main() async {
+  await GetStorage.init();
   runApp(const MyApp());
 }
 
@@ -20,7 +22,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
-
-
