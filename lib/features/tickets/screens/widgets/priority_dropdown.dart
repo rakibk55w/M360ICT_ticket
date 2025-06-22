@@ -30,7 +30,10 @@ class PriorityDropdown extends StatelessWidget {
             child: Obx(() {
               return DropdownButton<String>(
                 icon: const Icon(Icons.keyboard_arrow_down),
-                value: filterController.selectedPriority.isEmpty || filterController.selectedPriority == 'Select priority'
+                value:
+                    filterController.selectedPriority.isEmpty ||
+                        filterController.selectedPriority.value ==
+                            'Select priority'
                     ? null
                     : filterController.selectedPriority.value,
                 onChanged: (value) {

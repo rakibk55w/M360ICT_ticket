@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:m360ict/common/widgets/searchbar.dart';
 import 'package:m360ict/features/tickets/controllers/filter_controller.dart';
 import 'package:m360ict/features/tickets/screens/widgets/filter_status_options.dart';
+import 'package:m360ict/features/tickets/screens/widgets/filter_status_shimmer.dart';
 import 'package:m360ict/features/tickets/screens/widgets/priority_dropdown.dart';
 import 'package:m360ict/features/tickets/screens/widgets/ticket_progress_chip.dart';
 
@@ -50,7 +51,13 @@ class FilterScreen extends StatelessWidget {
             ),
 
             /// - Status options
-            const FilterStatusOptions(),
+            Obx(
+              () => SizedBox(
+                child: filterController.isStatusLoading.value
+                    ? FilterStatusShimmer()
+                    : const FilterStatusOptions(),
+              ),
+            ),
             const SizedBox(height: 16),
 
             /// - Priority options

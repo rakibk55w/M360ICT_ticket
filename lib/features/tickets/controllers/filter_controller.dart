@@ -22,11 +22,10 @@ class FilterController extends GetxController {
       isStatusLoading.value = true;
       final response = await HttpHelper.get("685824478561e97a50298854/latest");
       status.value = List<String>.from(response['record']['status']);
-    } catch (exception){
-      throw('Error fetching tickets: $exception');
+    } catch (exception) {
+      throw ('Error fetching tickets: $exception');
     } finally {
       isStatusLoading.value = false;
     }
   }
-
 }
