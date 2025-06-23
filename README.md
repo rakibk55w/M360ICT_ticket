@@ -44,32 +44,32 @@ A mock API server [JSONBin.io](https://jsonbin.io/) was used to simulate API cal
 ## Features
 ### Tickets
 In this screen there are multiple tickets including a dynamic ticket counter at the top. The informations are fetched API. Data fetching operation is handled using <b>http_client.dart</b> file. I used a model <b>ticket_model.dart</b> to catch the data fields in the API response. I used <b>ticket_controller.dart</b> to facilitate dynamic state changes for the incoming data. All the filter fields are dynamically selected and their background effects are also applied using controller. <br> <br>
-<img src="screenshots/TicketList.png" width="300"> <img src="screenshots/TicketList2.png" width="300">
+<img src="screenshots/TicketList.png" width="250"> <img src="screenshots/TicketList2.png" width="250">
 
 The list can be re-fetched by swiping the screen down. A shimmer loading effect is applied for the duration of the tickets asynchrounously loading. <br><br>
-<img src="screenshots/RefreshSwipe.png" width="300"> <img src="screenshots/ShimmerEffectTicket.png" width="300">
+<img src="screenshots/RefreshSwipe.png" width="250"> <img src="screenshots/ShimmerEffectTicket.png" width="250">
 
 There is a filter icon at the right corner, clicking it navigates the screen to the filter screen. All the filter options are selectable. The filter status options are fetched from API and created using list. A loading animation is showed while it loads. <br><br>
-<img src="screenshots/ShimmerEffectFilter.png" width="300"> <img src="screenshots/Filter.png" width="300">
+<img src="screenshots/ShimmerEffectFilter.png" width="250"> <img src="screenshots/Filter.png" width="250">
 
 The filter options can be selected and deselected also. <br><br>
-<img src="screenshots/Filter2.png" width="300"> <img src="screenshots/Filter3.png" width="300">
+<img src="screenshots/Filter2.png" width="250"> <img src="screenshots/Filter3.png" width="250">
 
 ### Contacts
 This screen shows a list of contacts which are also fetched from API. All the contact informations excluding the profile image is gained from API resonse. The contact informations are stored in the device using <b>Get Storage</b>. A shimmer loading effect is shown during the loading time. User can re-load the contacts by swiping down. <br><br>
-<img src="screenshots/ShimmerEffectContact.png" width="300"> <img src="screenshots/Contact.png" width="300"> <img src="screenshots/Contact2.png" width="300">
+<img src="screenshots/ShimmerEffectContact.png" width="250"> <img src="screenshots/Contact.png" width="250"> <img src="screenshots/Contact2.png" width="250">
 
 There is an options in the contact card that expands upon click. There is also active searching functionality that allows the user to search for contacts from the stored contents of the device. The contact list is re-generated upon each keystroke in the search bar. <br><br>
-<img src="screenshots/Contact3.png" width="300"> <img src="screenshots/Contact4.png" width="300">
+<img src="screenshots/Contact3.png" width="250"> <img src="screenshots/Contact4.png" width="250">
 
 ### Profile
 This screen is UI only and has no dynamic functionality. It is a simple profile screen with various information. <br><br>
-<img src="screenshots/Profile.png" width="300">
+<img src="screenshots/Profile.png" width="250">
 
 ## Side features
 ### Network Manager
 I used <b>network_manager.dart</b> that checks for internet connectivity in the app. If the device loses or regains internet connection, the app notifies the user through a toast. <br><br>
-<img src="screenshots/NoInternet.png" width="300"> <img src="screenshots/YesInternet.png" width="300"><br><br>
+<img src="screenshots/NoInternet.png" width="250"> <img src="screenshots/YesInternet.png" width="250"><br><br>
 
 ### API Key Protection
 I used <b>envied</b> and <b>envied_generator</b> packages to obfuscate the API key used in the API requests. The api key was kept in a .env variable to prevent exposing sensitive data in the app or version control.
